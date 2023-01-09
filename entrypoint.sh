@@ -59,7 +59,7 @@ then
   INPUT_COMMIT_MESSAGE="Update from https://$INPUT_GIT_SERVER/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 fi
 
-docker run -e TZ=Asia/Shanghai .........
+ENV TZ=Asia/Shanghai
 
 echo "Adding git commit"
 git add .
