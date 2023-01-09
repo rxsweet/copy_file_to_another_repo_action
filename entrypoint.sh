@@ -59,11 +59,12 @@ then
   INPUT_COMMIT_MESSAGE="Update from https://$INPUT_GIT_SERVER/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 fi
 
+docker run -e TZ=Asia/Shanghai .........
+
 echo "Adding git commit"
 git add .
 if git status | grep -q "Changes to be committed"
 then
-  git TZ="Asia/Shanghai" date
   git commit --message "$(date '+%Y-%m-%d %H:%M:%S') $INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
   git push -u origin HEAD:"$OUTPUT_BRANCH"
