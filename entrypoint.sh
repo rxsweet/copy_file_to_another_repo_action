@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 set -e
 set -x
 
@@ -59,7 +60,17 @@ then
   INPUT_COMMIT_MESSAGE="Update from https://$INPUT_GIT_SERVER/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 fi
 
-ENV TZ=Asia/Shanghai
+ENV TZ=Asia/Shanghai 
+RUN echo "${TZ}" > /etc/timezone \ 
+&& ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \ 
+&& apt update \ 
+&& apt install -y tzdata \ 
+&& rm -rf /var/lib/apt/lists/*
+
+作者：六百万
+链接：https://juejin.cn/post/7082670118257295391
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 echo "Adding git commit"
 git add .
