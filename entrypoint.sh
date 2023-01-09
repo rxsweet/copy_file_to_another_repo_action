@@ -60,14 +60,6 @@ then
   INPUT_COMMIT_MESSAGE="Update from https://$INPUT_GIT_SERVER/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 fi
 
-ENV TZ=Asia/Shanghai 
-RUN echo "${TZ}" > /etc/timezone \ 
-&& ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \ 
-&& apt update \ 
-&& apt install -y tzdata \ 
-&& rm -rf /var/lib/apt/lists/*
-
-
 echo "Adding git commit"
 git add .
 if git status | grep -q "Changes to be committed"
