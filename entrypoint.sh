@@ -63,6 +63,7 @@ echo "Adding git commit"
 git add .
 if git status | grep -q "Changes to be committed"
 then
+  git TZ="Asia/Shanghai" date
   git commit --message "$(date '+%Y-%m-%d %H:%M:%S') $INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
   git push -u origin HEAD:"$OUTPUT_BRANCH"
