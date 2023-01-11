@@ -59,7 +59,9 @@ if [ -z "$INPUT_COMMIT_MESSAGE" ]
 then
   INPUT_COMMIT_MESSAGE="Update from https://$INPUT_GIT_SERVER/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
 fi
-export TZ='Asia/Shanghai'; date
+
+TZ='Asia/Shanghai' date
+
 echo "Adding git commit"
 git add .
 if git status | grep -q "Changes to be committed"
