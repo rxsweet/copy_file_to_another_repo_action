@@ -65,7 +65,7 @@ git add .
 if git status | grep -q "Changes to be committed"
 then
   #git commit --message "$(date +%Y-%m-%d-%H:%M:%S) $INPUT_COMMIT_MESSAGE"
-  git commit --message "$(date --date=+8 hour +%Y-%m-%d-%H:%M:%S) $INPUT_COMMIT_MESSAGE"
+  git commit --message "$(date -d TZ='Asia/Shanghai' +%Y-%m-%d-%H:%M:%S) $INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
   git push -u origin HEAD:"$OUTPUT_BRANCH"
 else
