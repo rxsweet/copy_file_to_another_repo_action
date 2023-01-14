@@ -62,14 +62,6 @@ fi
 
 echo "Adding git commit"
 
-echo "show nowTime:"
-nowTime = $(date -d "+8 hours" +%Y-%m-%d-%H:%M:%S)
-echo $nowTime
-
-echo "show NOW_TIME:"
-NOW_TIME = $(date -d "+8 hours" +%Y-%m-%d-%H:%M:%S)
-echo $NOW_TIME
-
 echo "show NEXT_TIME:"
 NEXT_TIME = $(date "+%Y-%m-%d-%H:%M:%S" --date="8 hours")
 echo $NEXT_TIME
