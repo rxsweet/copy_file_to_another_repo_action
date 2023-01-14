@@ -61,10 +61,30 @@ then
 fi
 
 echo "Adding git commit"
+
+echo "show nowTime:"
+nowTime = $(date -d "+8 hours" +%Y-%m-%d-%H:%M:%S)
+echo $nowTime
+
+echo "show NOW_TIME:"
+NOW_TIME = $(date -d "+8 hours" +%Y-%m-%d-%H:%M:%S)
+echo $NOW_TIME
+
+echo "show NEXT_TIME:"
+NEXT_TIME = $(date "+%Y-%m-%d-%H:%M:%S" --date="8 hours")
+echo $NEXT_TIME
+
+echo "show TZ_TIME:"
+TZ_TIME = $(TZ=UTC+8 date +%Y-%m-%d-%H:%M:%S)
+echo $TZ_TIME
+
+echo "show DATE_TMP:"
+DATE_TMP = $(date -d "${DATE} 8 hours" "+%Y-%m-%d-%H:%M:%S")
+echo $DATE_TMP
 git add .
 if git status | grep -q "Changes to be committed"
 then
-  #git commit --message "$(date +%Y-%m-%d-%H:%M:%S -d '8 hour ago') $INPUT_COMMIT_MESSAGE"
+  #git commit --message "$(date +%Y-%m-%d-%H:%M:%S -d '8 hours') $INPUT_COMMIT_MESSAGE"
   git commit --message "$(date +%Y-%m-%d-%H:%M:%S ) $INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
   git push -u origin HEAD:"$OUTPUT_BRANCH"
