@@ -62,10 +62,6 @@ fi
 
 echo "Adding git commit"
 
-echo "show NEXT_TIME:"
-NEXT_TIME=$(date "+%Y-%m-%d-%H:%M:%S" --date="8 hours")
-echo $NEXT_TIME
-
 echo "show TZ_TIME:"
 TZ_TIME=$(TZ=UTC+8 date +%Y-%m-%d-%H:%M:%S)
 echo $TZ_TIME
