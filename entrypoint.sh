@@ -63,12 +63,9 @@ fi
 echo "Adding git commit"
 
 echo "show TZ_TIME:"
-TZ_TIME=$(TZ=UTC+8 date +%Y-%m-%d-%H:%M:%S)
+TZ_TIME=$(TZ=UTC-8 date +%Y-%m-%d-%H:%M:%S)
 echo $TZ_TIME
 
-echo "show DATE_TMP:"
-DATE_TMP=$(date -d "${DATE} 8 hours" "+%Y-%m-%d-%H:%M:%S")
-echo $DATE_TMP
 git add .
 if git status | grep -q "Changes to be committed"
 then
