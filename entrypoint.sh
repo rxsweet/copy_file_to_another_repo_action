@@ -63,15 +63,15 @@ fi
 echo "Adding git commit"
 
 echo "show NEXT_TIME:"
-NEXT_TIME = $(date "+%Y-%m-%d-%H:%M:%S" --date="8 hours")
+NEXT_TIME=$(date "+%Y-%m-%d-%H:%M:%S" --date="8 hours")
 echo $NEXT_TIME
 
 echo "show TZ_TIME:"
-TZ_TIME = $(TZ=UTC+8 date +%Y-%m-%d-%H:%M:%S)
+TZ_TIME=$(TZ=UTC+8 date +%Y-%m-%d-%H:%M:%S)
 echo $TZ_TIME
 
 echo "show DATE_TMP:"
-DATE_TMP = $(date -d "${DATE} 8 hours" "+%Y-%m-%d-%H:%M:%S")
+DATE_TMP=$(date -d "${DATE} 8 hours" "+%Y-%m-%d-%H:%M:%S")
 echo $DATE_TMP
 git add .
 if git status | grep -q "Changes to be committed"
